@@ -1,4 +1,4 @@
-﻿using CleanArch.Mvc.Models;
+﻿using CleanArch.ApplicationCore.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 

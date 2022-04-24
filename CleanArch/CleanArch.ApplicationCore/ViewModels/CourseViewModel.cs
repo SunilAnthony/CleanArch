@@ -9,6 +9,6 @@ namespace CleanArch.ApplicationCore.ViewModels
 {
     public class CourseViewModel
     {
-        public IEnumerable<Course> Courses { get; set; }
+        public IEnumerable<Course>? Courses { get; set; }
     }
 }
