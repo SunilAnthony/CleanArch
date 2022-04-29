@@ -1,5 +1,5 @@
-﻿using CleanArch.ApplicationCore.Intefaces;
-using CleanArch.ApplicationCore.ViewModels;
+﻿using CleanArch.Application.Intefaces;
+using CleanArch.Application.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

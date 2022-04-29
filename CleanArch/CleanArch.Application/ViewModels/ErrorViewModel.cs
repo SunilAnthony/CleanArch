@@ -1,4 +1,4 @@
-namespace CleanArch.ApplicationCore.ViewModels
+namespace CleanArch.Application.ViewModels
 {
     public class ErrorViewModel
     {

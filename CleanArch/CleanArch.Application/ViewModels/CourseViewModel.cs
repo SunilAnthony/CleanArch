@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArch.ApplicationCore.ViewModels
+namespace CleanArch.Application.ViewModels
 {
     public class CourseViewModel
     {

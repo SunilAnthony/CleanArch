@@ -1,12 +1,12 @@
 ﻿
-using CleanArch.ApplicationCore.ViewModels;
+using CleanArch.Application.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CleanArch.ApplicationCore.Intefaces
+namespace CleanArch.Application.Intefaces
 {
     public interface ICourseService
     {

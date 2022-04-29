@@ -1,5 +1,5 @@
-﻿using CleanArch.ApplicationCore.Intefaces;
-using CleanArch.ApplicationCore.Services;
+﻿using CleanArch.Application.Intefaces;
+using CleanArch.Application.Services;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Infrastructure.Data.Repositories;
 using Microsoft.Extensions.DependencyInjection;
