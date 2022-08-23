@@ -1,6 +1,10 @@
+using CleanArch.Application.Validations;
+using CleanArch.Application.ViewModels;
 using CleanArch.Infrastructure.Data.Context;
+using CleanArch.Infrastructure.Identity.Context;
 using CleanArch.Infrastructure.IoC;
-using CleanArch.Mvc.Data;
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -9,7 +13,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var identityConnectionString = builder.Configuration.GetConnectionString("UniversityIdentityDBConnection");
 var universityConnectionString = builder.Configuration.GetConnectionString("UniversityDBConnection");
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
+builder.Services.AddDbContext<SecurityDbContext>(options =>
     options.UseSqlServer(identityConnectionString));
 
 builder.Services.AddDbContext<UniversityDBContext>(options =>
@@ -18,8 +22,18 @@ builder.Services.AddDbContext<UniversityDBContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+    .AddEntityFrameworkStores<SecurityDbContext>();
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddFluentValidationAutoValidation( config =>
+{
+    //Disable other validator providers from executing
+    config.DisableDataAnnotationsValidation = true;
+});
+
+builder.Services.AddScoped<IValidator<CourseViewModel>, CourseViewModelValidator>();
 
 builder.Services.RegisterServices();
 

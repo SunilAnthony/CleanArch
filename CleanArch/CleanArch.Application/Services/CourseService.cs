@@ -1,4 +1,5 @@
-﻿using CleanArch.Application.Intefaces;
+﻿using AutoMapper;
+using CleanArch.Application.Intefaces;
 using CleanArch.Application.ViewModels;
 using CleanArch.Domain.Interfaces;
 using System;
@@ -12,17 +13,19 @@ namespace CleanArch.Application.Services
     public class CourseService : ICourseService
     {
         private readonly ICourseRepository _courseRepository;
+        private readonly IMapper _mapper;
 
-        public CourseService(ICourseRepository courseRepository)
+        public CourseService(ICourseRepository courseRepository, IMapper mapper)
         {
             this._courseRepository = courseRepository;
+            _mapper = mapper;
         }
-        public CourseViewModel GetCourses()
+        public List<CourseViewModel> GetCourses()
         {
-            return new CourseViewModel()
-            {
-                Courses = _courseRepository.GetCourses()
-            };
+
+            var courses = _courseRepository.GetCourses();
+            var viewModelCourses = _mapper.Map<List<CourseViewModel>>(courses);
+            return viewModelCourses;
         }
     }
 }
